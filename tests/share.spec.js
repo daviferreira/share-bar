@@ -481,12 +481,13 @@ describe('ShareBar - Methods Test Case', function () {
         });
 
         it('should append tracking when url already has a query string', function () {
-            var url = 'http://www.globo.com?test=1';
+            var url = 'http://www.globo.com?test=1',
+                data;
             this.el.setAttribute('data-url', url);
             createBar();
-            var data = this.newBar.getMetadataFromElement(this.el);
+            data = this.newBar.getMetadataFromElement(this.el);
             expect(data.url).toBe(window.encodeURIComponent(url + '&utm_source=#source#&utm_medium=share-bar-desktop&utm_campaign=share-bar'));
-        })
+        });
     });
 
     describe('createButton', function () {
