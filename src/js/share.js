@@ -284,12 +284,19 @@ function ShareBar(options) {
             var encode = window.encodeURIComponent,
                 url = element.getAttribute('data-url') || '',
                 data = {
-                    'url': encode(url + '?utm_source=#source#&utm_medium=share-bar-' + this.context + '&utm_campaign=share-bar'),
+                    'url': encode(this.addQueryString(url)),
                     'title': encode(element.getAttribute('data-title') || ''),
                     'imageUrl': encode(element.getAttribute('data-image-url') || ''),
                     'hashtags': encode(element.getAttribute('data-hashtags') || '')
                 };
             return data;
+        },
+
+        addQueryString: function addQueryString(url) {
+            var isQuestionMarkPresent = url && url.indexOf('?') !== -1,
+                separator = isQuestionMarkPresent ? '&' : '?',
+                queryString = 'utm_source=#source#&utm_medium=share-bar-' + this.context + '&utm_campaign=share-bar';
+            return url + separator + queryString;
         },
 
         deviceIsIphone: function deviceIsIphone() {
