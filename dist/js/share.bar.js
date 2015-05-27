@@ -1,4 +1,4 @@
-/*! ShareBar - v3.0.10 - 2015-05-02
+/*! ShareBar - v3.0.10 - 2015-05-27
 * Copyright (c) 2015 Globo.com; Licensed MIT */
 var BUTTON_WIDTH = 34;
 var BUTTON_FULL_WIDTH = 110;
@@ -42,7 +42,7 @@ function ShareBar(options) {
         },
 
         getActionName: function getActionName() {
-            return this.isTouch() ? 'mouseup' : 'click';
+            return this.isTouch() ? 'touchend' : 'click';
         },
 
         // https://github.com/Modernizr/Modernizr/blob/master/feature-detects/touchevents.js
@@ -401,7 +401,7 @@ function ShareBar(options) {
                 FB.init({
                     appId: facebookAppId,
                     xfbml: true,
-                    version: 'v2.1'
+                    version: 'v2.3'
                 });
             };
 
